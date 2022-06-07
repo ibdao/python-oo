@@ -24,25 +24,22 @@ class SerialGenerator:
         """
 
         self.start = start
-        self.count = 0
+        self.next = start
 
     def reset(self):
         """Resets the generator back to given start
             sets count back to 0 and returns `None`
         """
+        self.next = self.start
 
-        self.count = 0
-        return None
 
     def generate(self):
         """Generates next sequential number
             returns the starting point plus count
             and increments count by 1.
         """
-
-        current = self.start + self.count #current = 100 + 0
-        self.count +=1 #self.count = 1
-        return current
+        self.next += 1
+        return self.next - 1
     
         
         
